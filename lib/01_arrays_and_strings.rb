@@ -48,3 +48,15 @@ def remove_dups(str)
   str.each_char { |chr| found[chr] = true }
   found.select { |_, v| v }.keys.join
 end
+
+# Write a method to decide if two strings are anagrams or not.
+
+def anagrams?(str1, str2)
+  make_tally(str1) == make_tally(str2)
+end
+
+def make_tally(str)
+  tally = Hash.new(0)
+  str.each_char { |chr| tally[chr] += 1 }
+  tally
+end

@@ -26,4 +26,14 @@ describe "Arrays and Strings" do
       expect(remove_dups("ab")).to eql("ab")
     end
   end
+
+  describe "1.4 Anagram checker" do
+    it "returns true if two strings are anagrams" do
+      expect(anagrams?("apple", "elppa")).to be true
+    end
+
+    it "returns false if two strings are not anagrams" do
+      expect(anagrams?("apple", "orange")).to be false
+    end
+  end
 end
