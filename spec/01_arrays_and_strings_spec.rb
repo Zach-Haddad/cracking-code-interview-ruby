@@ -36,4 +36,10 @@ describe "Arrays and Strings" do
       expect(anagrams?("apple", "orange")).to be false
     end
   end
+
+  describe "1.5 replace spaces" do
+    it "replaces all spaces of a given string with '%20'" do
+      expect(replace_spaces("hello there")).to eql("hello%20there")
+    end
+  end
 end
