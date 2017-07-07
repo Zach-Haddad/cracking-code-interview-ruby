@@ -9,6 +9,10 @@ class MyStack
     @store = []
   end
 
+  def vals
+    @store.map(&:val)
+  end
+
   def push(val)
     new_node = MyNode.new(val)
     if @store.empty?
@@ -18,6 +22,7 @@ class MyStack
       new_node.min = prev_min < val ? prev_min : val
     end
     @store.push(new_node)
+    new_node.val
   end
 
   def pop
