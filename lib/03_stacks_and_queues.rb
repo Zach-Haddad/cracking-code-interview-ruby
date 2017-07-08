@@ -26,7 +26,10 @@ class MyStack
   end
 
   def pop
-    @store.pop unless @store.empty?
+    unless @store.empty?
+      val = @store.pop
+      val.val
+    end
   end
 
   def min
@@ -41,5 +44,31 @@ class MyNode
   def initialize(val)
     @val = val
     @min = nil
+  end
+end
+
+# Implement a MyQueue class which implements a queue using two stacks.
+
+class MyQueue
+  attr_accessor :in_stack, :out_stack
+
+  def initialize
+    @in_stack = MyStack.new
+    @out_stack = MyStack.new
+  end
+
+  def enqueue(val)
+    @in_stack.push(val)
+  end
+
+  def dequeue
+    self.adjust if !@in_stack.store.empty? && @out_stack.store.empty?
+    @out_stack.pop
+  end
+
+  def adjust
+    until @in_stack.empty?
+      @out_stack.push(@out_stack.pop)
+    end
   end
 end
