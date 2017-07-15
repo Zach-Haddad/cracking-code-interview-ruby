@@ -16,3 +16,16 @@ def rec_subsets(arr)
   last = rec_subsets(arr[0..-2])
   last + last.map { |subarr| subarr + [arr.last] }
 end
+
+# Write a method to compute all permutations of a string.
+
+def rec_permutations(string)
+  return [''] if string.empty?
+
+  (0...string.size).flat_map { |i|
+    chr, rest = string[i], string[0...i] + string[i + 1..-1]
+    rec_permutations(rest).map { |substr|
+      chr + substr
+    }
+  }
+end
