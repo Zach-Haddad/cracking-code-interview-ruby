@@ -29,3 +29,26 @@ def rec_permutations(string)
     }
   }
 end
+
+# Imagine a robot sitting on the upper left hand corner of an NxN grid.
+# The robot can only move in two directions: right and down.
+# How many possible paths are there for the robot?
+#
+# FOLLOW UP
+# Imagine certain squares are “o  limits”, such that the robot can not
+# step on them. Design an algorithm to get all possible paths for the robot.
+
+def num_paths(n, point=[0,0])
+  return 1 if point == [ n - 1, n - 1 ]
+  return 0 if point.any? { |coord| coord >= n }
+
+  up = point.dup
+  down = point.dup
+
+  up[1] += 1
+  down[0] += 1
+
+  num_paths(n, up) + num_paths(n, down)
+end
+
+p num_paths(3)
