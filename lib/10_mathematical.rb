@@ -2,7 +2,7 @@
 # Write a method to implement *, - , / operations. You should use only the + operator.
 def my_mult(num1, num2)
   res = 0
-  num2.times { res += num1 }
+  num2.times{ res += num1 }
   res
 end
 

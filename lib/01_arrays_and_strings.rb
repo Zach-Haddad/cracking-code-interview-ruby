@@ -1,3 +1,4 @@
+# 1.1
 # Implement an algorithm to determine if a string has all
 # unique characters. What if you can not use additional data structures?
 
@@ -27,6 +28,7 @@ def uniq_chars_iii(str)
   true
 end
 
+# 1.2
 # Write code to reverse a C-Style String. (C-String means that
 # “abcd” is represented as  five characters, including the null character.)
 
@@ -39,6 +41,7 @@ def reverse_str(str)
   res
 end
 
+# 1.3
 # Design an algorithm and write code to remove the duplicate characters
 # in a string without using any additional buffer. NOTE: One or
 # two additional variables are fine. An extra copy of the array is not.
@@ -49,6 +52,7 @@ def remove_dups(str)
   found.select { |_, v| v }.keys.join
 end
 
+# 1.4
 # Write a method to decide if two strings are anagrams or not.
 
 def anagrams?(str1, str2)
@@ -61,8 +65,20 @@ def make_tally(str)
   tally
 end
 
+# 1.5
 # Write a method to replace all spaces in a string with ‘%20’.
 
 def replace_spaces(str)
   str.gsub(/[ ]/, '%20')
+end
+
+# 1.8
+# Assume you have a method isSubstring which checks if one word is a
+# substring of another. Given two strings, s1 and s2, write code to
+# check if s2 is a rotation of s1 using only one call to isSubstring
+# (i.e., “waterbottle” is a rotation of “erbottlewat”).
+
+def is_rotation?(str1, str2)
+  return false if str1.length != str2.length
+  (str1*2).include?(str2)
 end
