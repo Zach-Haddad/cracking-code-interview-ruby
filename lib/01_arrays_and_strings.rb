@@ -72,6 +72,34 @@ def replace_spaces(str)
   str.gsub(/[ ]/, '%20')
 end
 
+# 1.7
+# Write an algorithm such that if an element
+# in an MxN matrix is 0, its entire row and column is set to 0.
+
+def set_zeroes(matrix)
+  marked_rows = []
+  marked_cols = []
+
+  matrix.each_with_index do |row_arr, row_idx|
+    row_arr.each_with_index do |cell, col_idx|
+      if cell == 0
+        marked_rows << row_idx unless marked_rows.include?(row_idx)
+        marked_cols << col_idx unless marked_cols.include?(col_idx)
+      end
+    end
+  end
+
+  matrix.each_with_index do |row_arr, row_idx|
+    row_arr.each_with_index do |_, col_idx|
+      if marked_rows.include?(row_idx) || marked_cols.include?(col_idx)
+        matrix[row_idx][col_idx] = 0
+      end
+    end
+  end
+
+  matrix
+end
+
 # 1.8
 # Assume you have a method isSubstring which checks if one word is a
 # substring of another. Given two strings, s1 and s2, write code to
